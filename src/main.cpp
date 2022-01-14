@@ -16,5 +16,5 @@ int main(int argc, char const *argv[])
 }
 
 /*
-    ./kittiOdometry '/media/mobiltech/Repository/kitti'
+    ./kittiOdometry '/home/mobiltech/Desktop/Data-ssd/kitti'
 */

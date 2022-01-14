@@ -19,12 +19,21 @@ kittiIO::~kittiIO()
 {
 }
 
-void kittiIO::loadData(const std::string &strPathToSequence, std::vector<std::string> &vstrImageRGB,
+int kittiIO::loadData(const std::string &strPathToSequence, std::vector<std::string> &vstrImageRGB,
                        std::vector<std::string> &vstrPointCloudLiDAR, std::string &vstrPose, std::string &vstrCalib, std::vector<double> &vTimestamps)
 {
     std::ifstream fTimes;
     std::string strPathTimeFile = strPathToSequence + "/data_odometry_gray/dataset/sequences/00/times.txt";
     fTimes.open(strPathTimeFile.c_str());
+
+    if (!fTimes.is_open())
+    {
+        std::cerr << std::endl
+             << "Failed to load path \n";
+        std::cerr << "Check args path : " << strPathToSequence << "\n";
+        return -1;
+    }
+
     while (!fTimes.eof())
     {
         std::string s;
@@ -57,7 +66,7 @@ void kittiIO::loadData(const std::string &strPathToSequence, std::vector<std::st
         vstrImageRGB[i] = strPrefixRGB + ss.str() + ".png";
         vstrPointCloudLiDAR[i] = strPrefixLiDAR + ss.str() + ".bin";
     }
-
+    return 1;
     
 }
 int kittiIO::makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<std::string> &vstrPointCloudLiDAR,
@@ -69,8 +78,8 @@ int kittiIO::makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<
     if (!fCalib.is_open())
     {
         std::cerr << std::endl
-             << "Failed to load pose at: " << vstrCalib.c_str() << "\n";
-        return 1;
+             << "Failed to load path \n";
+        return -1;
     }
 
     int calibInx = 0;
@@ -123,7 +132,6 @@ int kittiIO::makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<
 
         if (naming == "Tr:")
         {
-            std::cout << "!!!!!!!!! "<< naming <<"\n";
             calSt.naming = naming;
             calSt.projectionMatrix = projectionMatrix;
             calVec.push_back(calSt);
@@ -132,20 +140,19 @@ int kittiIO::makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<
 
         calSt.naming = naming;
         cv::decomposeProjectionMatrix(projectionMatrix, calSt.camMatrix, calSt.rotationMatrix, calSt.tranlationMatrix);
-        std::cout <<naming <<"\n";
 
         calVec.push_back(calSt);
     }
 
-    for (int i = 0; i < calVec.size(); i++)
-    {
-        std::cout << calVec[i].naming <<"\n";
-        std::cout << calVec[i].camMatrix <<"\n";
-        std::cout << calVec[i].rotationMatrix <<"\n";
-        std::cout << calVec[i].tranlationMatrix <<"\n";
-        std::cout << calVec[i].projectionMatrix <<"\n";
-        std::cout << "=======================" << "\n";
-    }
+    // for (int i = 0; i < calVec.size(); i++)
+    // {
+    //     std::cout << calVec[i].naming <<"\n";
+    //     std::cout << calVec[i].camMatrix <<"\n";
+    //     std::cout << calVec[i].rotationMatrix <<"\n";
+    //     std::cout << calVec[i].tranlationMatrix <<"\n";
+    //     std::cout << calVec[i].projectionMatrix <<"\n";
+    //     std::cout << "=======================" << "\n";
+    // }
 
     std::string pcLiDAR;
     pcLiDAR = vstrPointCloudLiDAR[0];
@@ -163,17 +170,66 @@ int kittiIO::makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<
     } points_t;
 
     points_t point;
-    std::vector<cv::Mat> cloud;
-    cloud.reserve(cloudSize / sizeof(point));
 
-    std::cout << "cloud size : " << cloudSize <<"\n";
+
+    std::cout << "sizeof(point); : " << sizeof(point)<<"\n";
     for (size_t i = 0; i < cloudSize / sizeof(point); ++i)
     {
+        pcl::PointXYZI cloud;
+
         fcloud.read((char *)&point, sizeof(point));
-        cloud.push_back((cv::Mat_<float>(3, 1) << point.x, point.y, point.z));
+        // cloud.push_back((cv::Mat_<float>(3, 1) << point.x, point.y, point.z));
+        cloud.x = point.x;
+        cloud.y = point.y;
+        cloud.z = point.z;
+        cloud.intensity = point.i;
+        binCloud->push_back(cloud);
     }
     fcloud.close();
+
+
+    cv::Mat kittiImg  = cv::imread(vstrImageRGB[0]);
+
+    std::cout << "img size : " << kittiImg.size() <<"\n";
+
+
+    for (const auto &point :*binCloud)
+    {
+
+        cv::Mat lidarPoints = (cv::Mat_<double>(3,1) << point.x, point.y, point.z);
+        cv::Mat L2ImgPixel;
+
+
+        cv::Mat testes = (cv::Mat_<double>(3,1) << calVec[4].projectionMatrix.at<double>(0,0) -  point.x,
+                        calVec[4].projectionMatrix.at<double>(0,1) -  point.y, 
+                        calVec[4].projectionMatrix.at<double>(0,2) -  point.z);
+
+
+        // L2ImgPixel = calVec[0].camMatrix * calVec[4].projectionMatrix * lidarPoints;
+        L2ImgPixel = calVec[0].camMatrix * calVec[4].projectionMatrix * lidarPoints;
+
+
+        // std::cout<<"L2ImgPixel.at<double>(0,1) : " << L2ImgPixel.at<double>(0,0) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,2) : " << L2ImgPixel.at<double>(0,1) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,3) : " << L2ImgPixel.at<double>(0,3) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,3) : " << L2ImgPixel.at<double>(1,0) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,3) : " << L2ImgPixel.at<double>(1,1) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,3) : " << L2ImgPixel.at<double>(1,2) <<"\n";
+        // std::cout<<"L2ImgPixel.at<double>(0,3) : " << L2ImgPixel.at<double>(1,1) <<"\n";
+
+        // std::cout << calVec[0].camMatrix << "\n";
+        // std::cout << calVec[4].projectionMatrix << "\n";
+
+        if (L2ImgPixel.at<double>(0,0) >= 0 && L2ImgPixel.at<double>(0,0) < kittiImg.cols && L2ImgPixel.at<double>(0,1) >= 0 && L2ImgPixel.at<double>(0,1) < kittiImg.rows)
+        {
+            cv::circle(kittiImg, cv::Point(L2ImgPixel.at<double>(0,0), L2ImgPixel.at<double>(0,1)), 1, cv::Scalar(255, 255, 255), 2);
+        }
+        
+    }
+    cv::imwrite("test.png", kittiImg);
     
+
+    return 1;
 }
 
 int kittiIO::readOdometry(std::string &path, std::vector<std::string> &trjVec)
@@ -203,6 +259,7 @@ int kittiIO::readOdometry(std::string &path, std::vector<std::string> &trjVec)
         std::cout << kittiTrj << "\n";
         std::cout << "============================="
                   << "\n";
+        
     }
 }
 
@@ -213,8 +270,8 @@ int kittiIO::poseTransform(std::string &posePath)
     if (!fpose.is_open())
     {
         std::cerr << std::endl
-                  << "Failed to load pose at: " << posePath << std::endl;
-        return 1;
+             << "Failed to load path \n";
+        return -1;
     }
 
     // std::vector<cv::Mat> true_pose;
@@ -275,4 +332,5 @@ int kittiIO::poseTransform(std::string &posePath)
         // tcw.copyTo(Tcw.rowRange(0, 3).col(3));
         // true_pose.push_back(Tcw);
     }
+    return 1;
 }

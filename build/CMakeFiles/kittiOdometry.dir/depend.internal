@@ -221,6 +221,9 @@ CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o
  /usr/include/pcl-1.8/pcl/PCLPointCloud2.h
  /usr/include/pcl-1.8/pcl/PCLPointField.h
  /usr/include/pcl-1.8/pcl/PointIndices.h
+ /usr/include/pcl-1.8/pcl/PolygonMesh.h
+ /usr/include/pcl-1.8/pcl/TextureMesh.h
+ /usr/include/pcl-1.8/pcl/Vertices.h
  /usr/include/pcl-1.8/pcl/cloud_iterator.h
  /usr/include/pcl-1.8/pcl/common/centroid.h
  /usr/include/pcl-1.8/pcl/common/common.h
@@ -256,6 +259,11 @@ CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o
  /usr/include/pcl-1.8/pcl/impl/instantiate.hpp
  /usr/include/pcl-1.8/pcl/impl/pcl_base.hpp
  /usr/include/pcl-1.8/pcl/impl/point_types.hpp
+ /usr/include/pcl-1.8/pcl/io/boost.h
+ /usr/include/pcl-1.8/pcl/io/file_io.h
+ /usr/include/pcl-1.8/pcl/io/impl/pcd_io.hpp
+ /usr/include/pcl-1.8/pcl/io/lzf.h
+ /usr/include/pcl-1.8/pcl/io/pcd_io.h
  /usr/include/pcl-1.8/pcl/kdtree/flann.h
  /usr/include/pcl-1.8/pcl/kdtree/impl/kdtree_flann.hpp
  /usr/include/pcl-1.8/pcl/kdtree/kdtree.h
@@ -547,6 +555,9 @@ CMakeFiles/kittiOdometry.dir/src/main.cpp.o
  /usr/include/pcl-1.8/pcl/PCLPointCloud2.h
  /usr/include/pcl-1.8/pcl/PCLPointField.h
  /usr/include/pcl-1.8/pcl/PointIndices.h
+ /usr/include/pcl-1.8/pcl/PolygonMesh.h
+ /usr/include/pcl-1.8/pcl/TextureMesh.h
+ /usr/include/pcl-1.8/pcl/Vertices.h
  /usr/include/pcl-1.8/pcl/cloud_iterator.h
  /usr/include/pcl-1.8/pcl/common/centroid.h
  /usr/include/pcl-1.8/pcl/common/common.h
@@ -582,6 +593,11 @@ CMakeFiles/kittiOdometry.dir/src/main.cpp.o
  /usr/include/pcl-1.8/pcl/impl/instantiate.hpp
  /usr/include/pcl-1.8/pcl/impl/pcl_base.hpp
  /usr/include/pcl-1.8/pcl/impl/point_types.hpp
+ /usr/include/pcl-1.8/pcl/io/boost.h
+ /usr/include/pcl-1.8/pcl/io/file_io.h
+ /usr/include/pcl-1.8/pcl/io/impl/pcd_io.hpp
+ /usr/include/pcl-1.8/pcl/io/lzf.h
+ /usr/include/pcl-1.8/pcl/io/pcd_io.h
  /usr/include/pcl-1.8/pcl/kdtree/flann.h
  /usr/include/pcl-1.8/pcl/kdtree/impl/kdtree_flann.hpp
  /usr/include/pcl-1.8/pcl/kdtree/kdtree.h

@@ -11,7 +11,7 @@ public:
 
     int readOdometry(std::string &path, std::vector<std::string> &vecPath);
 
-    void loadData(const std::string &strPathToSequence, std::vector<std::string> &vstrImageRGB,
+    int loadData(const std::string &strPathToSequence, std::vector<std::string> &vstrImageRGB,
                   std::vector<std::string> &vstrPointCloudLiDAR, std::string &vstrPose, std::string &vstrCalib, std::vector<double> &vTimestamps);
                   
     int poseTransform(std::string &path);
