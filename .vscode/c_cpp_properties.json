@@ -1,0 +1,39 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/mobiltech/workspace/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/mobiltech/catkin_ws/src/bm_loc/include/**",
+        "/home/mobiltech/catkin_ws/src/cam_lidar_calib/include/**",
+        "/home/mobiltech/catkin_ws/src/camera_image_saver/include/**",
+        "/home/mobiltech/catkin_ws/src/color_lss/include/**",
+        "/home/mobiltech/catkin_ws/src/Hesai_re/include/**",
+        "/home/mobiltech/catkin_ws/src/imu_calib/include/**",
+        "/home/mobiltech/catkin_ws/src/imu_tools/imu_complementary_filter/include/**",
+        "/home/mobiltech/catkin_ws/src/imu_tools/imu_filter_madgwick/include/**",
+        "/home/mobiltech/catkin_ws/src/mt_lss_autoever/include/**",
+        "/home/mobiltech/catkin_ws/src/mt_loc/include/**",
+        "/home/mobiltech/catkin_ws/src/mt_lps/include/**",
+        "/home/mobiltech/catkin_ws/src/mt_lss/include/**",
+        "/home/mobiltech/catkin_ws/src/mulit_lidar_calib/include/**",
+        "/home/mobiltech/catkin_ws/src/opt_lss/include/**",
+        "/home/mobiltech/catkin_ws/src/sick_tim/include/**",
+        "/home/mobiltech/catkin_ws/src/single_lidar_calib/include/**",
+        "/home/mobiltech/catkin_ws/src/sync_example/include/**",
+        "/home/mobiltech/catkin_ws/src/velodyne/velodyne_driver/include/**",
+        "/home/mobiltech/catkin_ws/src/velodyne/velodyne_laserscan/include/**",
+        "/home/mobiltech/catkin_ws/src/velodyne/velodyne_pcl/include/**",
+        "/home/mobiltech/catkin_ws/src/velodyne/velodyne_pointcloud/include/**",
+        "/usr/include/**",
+        "/home/mobiltech/workspace/kittiOdometry/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
