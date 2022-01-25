@@ -142,32 +142,32 @@ kittiOdometry/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/build
 .PHONY : kittiOdometry/fast
 
-src/kittiIO.o: src/kittiIO.cpp.o
+src/kittiOdom.o: src/kittiOdom.cpp.o
 
-.PHONY : src/kittiIO.o
+.PHONY : src/kittiOdom.o
 
 # target to build an object file
-src/kittiIO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o
-.PHONY : src/kittiIO.cpp.o
+src/kittiOdom.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o
+.PHONY : src/kittiOdom.cpp.o
 
-src/kittiIO.i: src/kittiIO.cpp.i
+src/kittiOdom.i: src/kittiOdom.cpp.i
 
-.PHONY : src/kittiIO.i
+.PHONY : src/kittiOdom.i
 
 # target to preprocess a source file
-src/kittiIO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.i
-.PHONY : src/kittiIO.cpp.i
+src/kittiOdom.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.i
+.PHONY : src/kittiOdom.cpp.i
 
-src/kittiIO.s: src/kittiIO.cpp.s
+src/kittiOdom.s: src/kittiOdom.cpp.s
 
-.PHONY : src/kittiIO.s
+.PHONY : src/kittiOdom.s
 
 # target to generate assembly for a file
-src/kittiIO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.s
-.PHONY : src/kittiIO.cpp.s
+src/kittiOdom.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kittiOdometry.dir/build.make CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.s
+.PHONY : src/kittiOdom.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -205,9 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... kittiOdometry"
-	@echo "... src/kittiIO.o"
-	@echo "... src/kittiIO.i"
-	@echo "... src/kittiIO.s"
+	@echo "... src/kittiOdom.o"
+	@echo "... src/kittiOdom.i"
+	@echo "... src/kittiOdom.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

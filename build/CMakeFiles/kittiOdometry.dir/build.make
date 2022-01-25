@@ -89,29 +89,29 @@ CMakeFiles/kittiOdometry.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kittiOdometry.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mobiltech/workspace/kittiOdometry/src/main.cpp -o CMakeFiles/kittiOdometry.dir/src/main.cpp.s
 
-CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o: CMakeFiles/kittiOdometry.dir/flags.make
-CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o: ../src/kittiIO.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mobiltech/workspace/kittiOdometry/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o -c /home/mobiltech/workspace/kittiOdometry/src/kittiIO.cpp
+CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o: CMakeFiles/kittiOdometry.dir/flags.make
+CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o: ../src/kittiOdom.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mobiltech/workspace/kittiOdometry/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o -c /home/mobiltech/workspace/kittiOdometry/src/kittiOdom.cpp
 
-CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mobiltech/workspace/kittiOdometry/src/kittiIO.cpp > CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.i
+CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mobiltech/workspace/kittiOdometry/src/kittiOdom.cpp > CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.i
 
-CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mobiltech/workspace/kittiOdometry/src/kittiIO.cpp -o CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.s
+CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mobiltech/workspace/kittiOdometry/src/kittiOdom.cpp -o CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.s
 
 # Object files for target kittiOdometry
 kittiOdometry_OBJECTS = \
 "CMakeFiles/kittiOdometry.dir/src/main.cpp.o" \
-"CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o"
+"CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o"
 
 # External object files for target kittiOdometry
 kittiOdometry_EXTERNAL_OBJECTS =
 
 kittiOdometry: CMakeFiles/kittiOdometry.dir/src/main.cpp.o
-kittiOdometry: CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o
+kittiOdometry: CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o
 kittiOdometry: CMakeFiles/kittiOdometry.dir/build.make
 kittiOdometry: /usr/local/lib/libopencv_gapi.so.4.5.4
 kittiOdometry: /usr/local/lib/libopencv_stitching.so.4.5.4

@@ -13,6 +13,8 @@ boost/filesystem.hpp
 -
 boost/foreach.hpp
 -
+tqdm.h
+-
 pcl/point_cloud.h
 -
 pcl/point_types.h
@@ -49,14 +51,40 @@ opencv2/core.hpp
 -
 opencv2/calib3d.hpp
 -
+liblas/liblas.hpp
+-
 
-../include/kittiIO.hpp
+../include/kittiOdom.hpp
 common.hpp
 ../include/common.hpp
 
-/home/mobiltech/workspace/kittiOdometry/src/kittiIO.cpp
-kittiIO.hpp
-/home/mobiltech/workspace/kittiOdometry/src/kittiIO.hpp
+../include/tqdm.h
+unistd.h
+-
+chrono
+-
+ctime
+-
+numeric
+-
+ios
+-
+string
+-
+cstdlib
+-
+iostream
+-
+vector
+-
+math.h
+-
+algorithm
+-
+
+/home/mobiltech/workspace/kittiOdometry/src/kittiOdom.cpp
+kittiOdom.hpp
+/home/mobiltech/workspace/kittiOdometry/src/kittiOdom.hpp
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

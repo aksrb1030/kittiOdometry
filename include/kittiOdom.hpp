@@ -1,9 +1,29 @@
 #include "common.hpp"
 
-class kittiIO
+class KITTI
 {
+
+    
 private:
     /* data */
+    using Eigen3x3d = Eigen::Matrix<double,3,3>;
+    using Eigen3x1d = Eigen::Matrix<double,3,1>;
+    using Eigen4x1d = Eigen::Matrix<double,4,1>;
+    using Eigen3x4d = Eigen::Matrix<double,3,4>;
+
+    struct calibDataSt
+    {
+        std::string naming;
+        cv::Mat intrinsicMatrix;
+        cv::Mat rotationMatrix;
+        cv::Mat tranlationMatrix;
+        cv::Mat transformMatrix;
+    };
+    std::string seqNum_;
+
+    pcl::PointCloud<pcl::PointXYZRGBI>::Ptr colorMap_;
+    // pcl::PointCloud<pcl::PointXYZRGBI>::Ptr intensityMap_;
+
 
     double colorMap[64][3] = {
             {0,	0,	0.562500000000000},
@@ -73,16 +93,14 @@ private:
         };
 
 public:
-    kittiIO(std::string &path);
-    ~kittiIO();
+    KITTI(std::string &path, std::string &seqNum);
+    ~KITTI();
 
-    int readOdometry(std::string &path, std::vector<std::string> &vecPath);
-
-    int loadData(const std::string &strPathToSequence,std::vector<std::string> &vstrImageGray ,std::vector<std::string> &vstrImageRGB,
+    int loadData(const std::string &strPathToSequence, std::vector<std::string> &vstrCam0, std::vector<std::string> &vstrCam1 ,std::vector<std::string> &vstrCam2,std::vector<std::string> &vstrCam3,
                   std::vector<std::string> &vstrPointCloudLiDAR, std::string &vstrPose, std::string &vstrCalib, std::vector<double> &vTimestamps);
-                  
-    int poseTransform(std::string &path);
-    
-    int makeMap(std::string &vstrCalib, std::string &vstrPose, std::vector<std::string> &vstrPointCloudLiDAR,
-                std::vector<std::string> &vstrImageRGB, std::vector<std::string> &vstrImageGray);
+    int projection(std::string &vstrCalib, std::string &vstrPose, std::vector<std::string> &vstrPointCloudLiDAR,
+                std::vector<std::string> &vstrCam0, std::vector<std::string> &vstrCam1, std::vector<std::string> &vstrCam2, std::vector<std::string> &vstrCam3);
+    int makeColorMap(std::vector<std::string> &vstrPointCloudLiDAR, const std::vector<calibDataSt> &calVec, const std::vector<std::string> &vstrCam2, std::string &vstrPose);
+    void tokeNize(const std::string& str, std::vector<std::string>& tokens, const std::string& delimiters);
+    void img2LProection(cv::Mat &l2c, const std::vector<calibDataSt> &calVec, const std::vector<cv::Mat> &kittiImgVec, std::vector<cv::Mat> &projectionImg);
 };

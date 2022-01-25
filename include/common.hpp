@@ -1,6 +1,8 @@
+#define PCL_NO_PRECOMPILE
 #include <iostream>
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
+#include <tqdm.h>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -23,3 +25,21 @@
 #include <opencv2/core.hpp>
 #include <opencv2/calib3d.hpp>
 
+#include <liblas/liblas.hpp>
+
+namespace pcl
+{
+
+    struct PointXYZRGBI
+    {
+        PCL_ADD_POINT4D;
+        PCL_ADD_RGB;
+        PCL_ADD_INTENSITY;
+
+        EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+    } EIGEN_ALIGN16;
+
+}
+
+POINT_CLOUD_REGISTER_POINT_STRUCT(PointXYZRGBI,
+                                  (float, x, x)(float, y, y)(float, z, z)(float, rgb, rgb)(float, intensity, intensity))

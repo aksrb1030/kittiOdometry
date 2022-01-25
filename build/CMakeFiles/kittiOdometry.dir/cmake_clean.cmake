@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/kittiOdometry.dir/src/kittiIO.cpp.o"
+  "CMakeFiles/kittiOdometry.dir/src/kittiOdom.cpp.o"
   "CMakeFiles/kittiOdometry.dir/src/main.cpp.o"
   "kittiOdometry"
   "kittiOdometry.pdb"

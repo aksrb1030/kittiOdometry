@@ -19,6 +19,6 @@ include_directories(
   ${PCL_INCLUDE_DIRS}
 )
 
-add_executable(kittiOdometry src/main.cpp src/kittiIO.cpp)
+add_executable(kittiOdometry src/main.cpp src/kittiOdom.cpp)
 target_link_libraries(kittiOdometry ${OpenCV_LIBS} ${VTK_LIBARRIES} ${PCL_LIBRARIES} /usr/lib/liblas.so.3
 )
