@@ -62,7 +62,7 @@ make -j4
 
 # How to use
 ```
-./kittiOdometry '/home/mobiltech/Desktop/Data-ssd/kitti'
+ex) ./kittiOdometry '/home/mobiltech/Desktop/Data-ssd/kitti' 00
 
  - n, m : 이전, 다음 이미지
  - s : map 저장
