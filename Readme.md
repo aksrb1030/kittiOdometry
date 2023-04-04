@@ -64,7 +64,7 @@ make -j4
 ```
 ex) ./kittiOdometry '/home/mobiltech/Desktop/Data-ssd/kitti' 00
 
- - n, m : Previous, Next 이미지
+ - n, m : Previous, Next image
  - s : Map save
  - Esc : Exit
 ```
