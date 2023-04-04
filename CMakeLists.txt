@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.2)
 project(kittiOdometry)
 set(CMAKE_BUILD_TYPE Release)
 
-add_compile_options(-std=c++11)
+add_compile_options(-std=c++14)
 #add_compile_options(-pg)
 
 find_package(OpenCV REQUIRED)
@@ -10,7 +10,7 @@ find_package(Eigen3 REQUIRED)
 find_package(libLAS REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(VTK REQUIRED)
-find_package(PCL 1.8 REQUIRED)
+find_package(PCL REQUIRED)
 
 include_directories(
   include
@@ -20,5 +20,4 @@ include_directories(
 )
 
 add_executable(kittiOdometry src/main.cpp src/kittiOdom.cpp)
-target_link_libraries(kittiOdometry ${OpenCV_LIBS} ${VTK_LIBARRIES} ${PCL_LIBRARIES} /usr/lib/liblas.so.3
-)
+target_link_libraries(kittiOdometry ${OpenCV_LIBS} ${VTK_LIBARRIES} ${PCL_LIBRARIES} ${libLAS_LIBRARIES})

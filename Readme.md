@@ -1,13 +1,13 @@
 # KITTI_odometry
 
-* KITTI data set 핸들링 tools (for odometry)
-- LiDAR to Img projection view
+* KITTI data set handling tools (for odometry)
+- LiDAR to Img projection
 - Make color map
 
-* KITTI Car 구조
+* KITTI Car Configuration
 <img src="./img/Kitti_Car_configuration.png">
 
-* KITTI data set 구조 
+* KITTI data set Configuration 
 ```
 KITTI
 ├── data_odometry_velodyne
@@ -64,9 +64,9 @@ make -j4
 ```
 ex) ./kittiOdometry '/home/mobiltech/Desktop/Data-ssd/kitti' 00
 
- - n, m : 이전, 다음 이미지
- - s : map 저장
- - Esc : 나가기
+ - n, m : Previous, Next 이미지
+ - s : Map save
+ - Esc : Exit
 ```
 # Result
 * 00_image_projection
